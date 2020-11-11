@@ -1,0 +1,116 @@
+<html>
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis.css" type="text/css" />
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis-network.min.js"> </script>
+<center>
+<h1>Game of Graphs - Stark Edition</h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+
+<style type="text/css">
+
+        #mynetwork {
+            width: 100%;
+            height: 100%;
+            background-color: #222222;
+            border: 1px solid lightgray;
+            position: relative;
+            float: left;
+        }
+
+        
+
+        
+
+        
+</style>
+
+</head>
+
+<body>
+<div id = "mynetwork"></div>
+
+
+<script type="text/javascript">
+
+    // initialize global variables.
+    var edges;
+    var nodes;
+    var network; 
+    var container;
+    var options, data;
+
+    
+    // This method is responsible for drawing the graph, returns the drawn network
+    function drawGraph() {
+        var container = document.getElementById('mynetwork');
+        
+        
+
+        // parsing and collecting nodes and edges from the python
+        nodes = new vis.DataSet([{"font": {"color": "white"}, "id": "Arya-Stark", "label": "Arya Stark", "shape": "dot", "size": 10, "value": 7}, {"font": {"color": "white"}, "id": "Benjen-Stark", "label": "Benjen Stark", "shape": "dot", "size": 10, "value": 3}, {"font": {"color": "white"}, "id": "Bran-Stark", "label": "Bran Stark", "shape": "dot", "size": 10, "value": 8}, {"font": {"color": "white"}, "id": "Catelyn-Stark", "label": "Catelyn Stark", "shape": "dot", "size": 10, "value": 6}, {"font": {"color": "white"}, "id": "Eddard-Stark", "label": "Eddard Stark", "shape": "dot", "size": 10, "value": 9}, {"font": {"color": "white"}, "id": "Rickon-Stark", "label": "Rickon Stark", "shape": "dot", "size": 10, "value": 7}, {"font": {"color": "white"}, "id": "Robb-Stark", "label": "Robb Stark", "shape": "dot", "size": 10, "value": 8}, {"font": {"color": "white"}, "id": "Sansa-Stark", "label": "Sansa Stark", "shape": "dot", "size": 10, "value": 7}, {"font": {"color": "white"}, "id": "Rickard-Stark", "label": "Rickard Stark", "shape": "dot", "size": 10, "value": 2}, {"font": {"color": "white"}, "id": "Brandon-Stark", "label": "Brandon Stark", "shape": "dot", "size": 10, "value": 5}, {"font": {"color": "white"}, "id": "Lyanna-Stark", "label": "Lyanna Stark", "shape": "dot", "size": 10, "value": 3}, {"font": {"color": "white"}, "id": "Torrhen-Stark", "label": "Torrhen Stark", "shape": "dot", "size": 10, "value": 1}]);
+        edges = new vis.DataSet([{"from": "Arya-Stark", "id": 296, "to": "Benjen-Stark", "weight": 3}, {"from": "Arya-Stark", "id": 299, "to": "Bran-Stark", "weight": 40}, {"from": "Arya-Stark", "id": 303, "to": "Catelyn-Stark", "weight": 8}, {"from": "Arya-Stark", "id": 311, "to": "Eddard-Stark", "weight": 46}, {"from": "Arya-Stark", "id": 347, "to": "Rickon-Stark", "weight": 20}, {"from": "Arya-Stark", "id": 348, "to": "Robb-Stark", "weight": 44}, {"from": "Arya-Stark", "id": 354, "to": "Sansa-Stark", "weight": 155}, {"from": "Benjen-Stark", "id": 552, "to": "Bran-Stark", "weight": 9}, {"from": "Benjen-Stark", "id": 559, "to": "Robb-Stark", "weight": 7}, {"from": "Bran-Stark", "id": 630, "to": "Catelyn-Stark", "weight": 24}, {"from": "Bran-Stark", "id": 636, "to": "Eddard-Stark", "weight": 34}, {"from": "Bran-Stark", "id": 663, "to": "Rickard-Stark", "weight": 4}, {"from": "Bran-Stark", "id": 664, "to": "Rickon-Stark", "weight": 129}, {"from": "Bran-Stark", "id": 665, "to": "Robb-Stark", "weight": 169}, {"from": "Bran-Stark", "id": 669, "to": "Sansa-Stark", "weight": 25}, {"from": "Brandon-Stark", "id": 681, "to": "Eddard-Stark", "weight": 19}, {"from": "Brandon-Stark", "id": 682, "to": "Lyanna-Stark", "weight": 4}, {"from": "Brandon-Stark", "id": 684, "to": "Rickard-Stark", "weight": 3}, {"from": "Brandon-Stark", "id": 685, "to": "Rickon-Stark", "weight": 3}, {"from": "Brandon-Stark", "id": 686, "to": "Robb-Stark", "weight": 3}, {"from": "Catelyn-Stark", "id": 807, "to": "Eddard-Stark", "weight": 88}, {"from": "Catelyn-Stark", "id": 840, "to": "Rickon-Stark", "weight": 6}, {"from": "Catelyn-Stark", "id": 842, "to": "Robb-Stark", "weight": 128}, {"from": "Catelyn-Stark", "id": 850, "to": "Sansa-Stark", "weight": 32}, {"from": "Eddard-Stark", "id": 1318, "to": "Lyanna-Stark", "weight": 19}, {"from": "Eddard-Stark", "id": 1332, "to": "Rickon-Stark", "weight": 15}, {"from": "Eddard-Stark", "id": 1333, "to": "Robb-Stark", "weight": 46}, {"from": "Eddard-Stark", "id": 1338, "to": "Sansa-Stark", "weight": 43}, {"from": "Eddard-Stark", "id": 1345, "to": "Torrhen-Stark", "weight": 3}, {"from": "Lyanna-Stark", "id": 2223, "to": "Sansa-Stark", "weight": 4}, {"from": "Rickon-Stark", "id": 2597, "to": "Robb-Stark", "weight": 53}, {"from": "Rickon-Stark", "id": 2599, "to": "Sansa-Stark", "weight": 20}, {"from": "Robb-Stark", "id": 2612, "to": "Sansa-Stark", "weight": 44}]);
+
+        // adding nodes and edges to the graph
+        data = {nodes: nodes, edges: edges};
+
+        var options = {
+    "configure": {
+        "enabled": false
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": false,
+            "type": "continuous"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "barnesHut": {
+            "avoidOverlap": 0,
+            "centralGravity": 0.3,
+            "damping": 0.09,
+            "gravitationalConstant": -80000,
+            "springConstant": 0.001,
+            "springLength": 250
+        },
+        "enabled": true,
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+        
+        
+
+        
+
+        network = new vis.Network(container, data, options);
+
+        
+
+
+        
+
+        return network;
+
+    }
+
+    drawGraph();
+
+</script>
+</body>
+</html>
