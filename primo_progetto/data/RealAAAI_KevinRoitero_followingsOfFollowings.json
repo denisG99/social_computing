@@ -1,0 +1,62 @@
+[
+    {
+        "id": 2390705126,
+        "name": "Mausam",
+        "screen_name": "mishumausam",
+        "location": ""
+    },
+    {
+        "id": 1112711079552053250,
+        "name": "AIhub",
+        "screen_name": "aihuborg",
+        "location": ""
+    },
+    {
+        "id": 115763683,
+        "name": "Association for Computing Machinery",
+        "screen_name": "TheOfficialACM",
+        "location": "New York, NY"
+    },
+    {
+        "id": 775449094739197953,
+        "name": "Ian Goodfellow",
+        "screen_name": "goodfellow_ian",
+        "location": "San Francisco, CA"
+    },
+    {
+        "id": 103989154,
+        "name": "ICWSM",
+        "screen_name": "icwsm",
+        "location": "Atlanta, GA"
+    },
+    {
+        "id": 92116069,
+        "name": "Erik Brynjolfsson",
+        "screen_name": "erikbryn",
+        "location": "Stanford"
+    },
+    {
+        "id": 4783690002,
+        "name": "DeepMind",
+        "screen_name": "DeepMind",
+        "location": "London, UK"
+    },
+    {
+        "id": 17292623,
+        "name": "AAAS",
+        "screen_name": "aaas",
+        "location": "Washington, D.C."
+    },
+    {
+        "id": 258540979,
+        "name": "Kevin Leyton-Brown",
+        "screen_name": "k_leyton_brown",
+        "location": ""
+    },
+    {
+        "id": 264501255,
+        "name": "Eric Horvitz",
+        "screen_name": "erichorvitz",
+        "location": "Seattle WA  USA"
+    }
+]
